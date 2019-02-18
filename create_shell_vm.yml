@@ -1,0 +1,31 @@
+- name: create Shell VM with Minimal parameters
+  hosts: localhost
+  connection: local
+  tasks:
+          - vmware_guest:
+                  username: root
+                  password: Dxc@2019
+                  guest_id: rhel7_64Guest
+                  state: poweredon
+                  validate_certs: no
+                  name: rhel75vm
+                  folder: /
+                  disk:
+                  - size_gb: 10
+                    type: thin
+                    datastore: datastore1
+                  networks:
+                  - name: VM Network
+                    device_type: vmxnet3
+                    ip: 10.75.0.10
+                    netmask: 255.255.255.224
+                  hardware:
+                          memory_mb: 512
+                          num_cpus: 1
+                          osid: rhel5
+                          scsi: paravirtual
+                          #cdrom:
+                          #type: "iso"
+                          #iso_path: "golddisk-rhel-x86_64-75server-3q18.iso"
+                          #esxi_hostname: 192.168.232.138
+                  hostname: 192.168.232.138
