@@ -4,7 +4,7 @@
   tasks:
           - vmware_guest:
                   username: root
-                  password: Dxc@2019
+                  password: ******
                   guest_id: rhel7_64Guest
                   state: poweredon
                   validate_certs: no
